@@ -20,7 +20,6 @@ const forgotPassword = asyncHandler(async (req, res) => {
 
   const token = generateToken(user._id);
 
-  
     // If no errors occur, send an email to the user
     const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
@@ -70,9 +69,6 @@ const forgotPassword = asyncHandler(async (req, res) => {
         message:
           "Password reset link has been sent to your email. Please check your inbox and follow the instructions to reset your password.",
       });
-
-
-
 });
 
 export default forgotPassword;

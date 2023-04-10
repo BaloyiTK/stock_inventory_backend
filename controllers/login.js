@@ -21,8 +21,6 @@ const login = asyncHandler(async (req, res) => {
     throw new Error("User not found , please sign up!");
   }
 
-  console.log(user.password);
-
   const passwordMatch = await bcrypt.compare(password, user.password);
 
   const token = generateToken(user._id);
