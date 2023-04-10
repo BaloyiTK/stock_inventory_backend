@@ -12,10 +12,10 @@ const generateToken = (id) => {
 const forgotPassword = asyncHandler(async (req, res) => {
   const { email } = req.body;
 
-  const user = await User.findOne({ email });
+  const user = await User.findOne({ email })
   if (!user) {
     res.status(401);
-    throw new Error("user not found!");
+    throw new Error("user not found!")
   }
 
   const token = generateToken(user._id);
