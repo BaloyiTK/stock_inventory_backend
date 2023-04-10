@@ -1,9 +1,6 @@
 import asyncHandler from "express-async-handler";
 
 const logout = asyncHandler(async (req, res) => {
- // res.clearCookie("token").send("Logged out successfully");
-
-  
 
       res.cookie("token", "", {
           path: "/",

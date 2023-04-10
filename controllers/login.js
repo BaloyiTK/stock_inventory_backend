@@ -26,7 +26,7 @@ const login = asyncHandler(async (req, res) => {
   const passwordMatch = await bcrypt.compare(password, user.password);
 
   const token = generateToken(user._id);
-  
+
   res.cookie("token", token, {
     path: "/",
     httpOnly: true,
@@ -37,7 +37,6 @@ const login = asyncHandler(async (req, res) => {
   if (passwordMatch) {
     const { _id, name, email, photo } = user;
     return res.status(200).json({ _id, name, email, photo, token });
-    
   } else {
     res.status(400);
     throw new Error("Incorrect email or password!");

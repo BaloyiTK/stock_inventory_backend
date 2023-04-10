@@ -8,7 +8,6 @@ const changePassword = asyncHandler(async (req, res) => {
   const user = await User.findById(userId);
 
   if (user) {
-    //const oldPassword = user.password
 
     const { oldpassword, password } = req.body;
 
