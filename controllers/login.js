@@ -1,11 +1,7 @@
-import jwt from "jsonwebtoken";
 import asyncHandler from "express-async-handler";
 import User from "../models/userModel.js";
 import bcrypt from "bcrypt";
-
-const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "60m" });
-};
+import { generateToken } from "../generateToken.js";
 
 const login = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
@@ -23,7 +19,9 @@ const login = asyncHandler(async (req, res) => {
 
   const passwordMatch = await bcrypt.compare(password, user.password);
 
-  const token = generateToken(user._id);
+  //const token = generateToken(user._id);
+  const token = generateToken(user._id)
+
 
   res.cookie("token", token, {
     path: "/",

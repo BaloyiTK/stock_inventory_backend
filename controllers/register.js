@@ -1,11 +1,5 @@
 import User from "../models/userModel.js";
 import asyncHandler from "express-async-handler";
-import jwt from "jsonwebtoken";
-
-
-const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "60m" });
-};
 
 const register = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
@@ -35,6 +29,7 @@ const register = asyncHandler(async (req, res) => {
   });
 
   const token = generateToken(user._id);
+  
   res.cookie("token", token, {
     path: "/",
     httpOnly: true,

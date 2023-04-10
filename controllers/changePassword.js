@@ -3,6 +3,7 @@ import User from "../models/userModel.js";
 import bcrypt from "bcrypt";
 
 const changePassword = asyncHandler(async (req, res) => {
+  
   const userId = req.user_id;
 
   const user = await User.findById(userId);
