@@ -4,8 +4,8 @@ import User from "../models/userModel.js";
 import bcrypt from "bcrypt";
 
 const generateToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "60m" });
-  };
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "60m" });
+};
 
 const login = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
