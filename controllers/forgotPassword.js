@@ -21,7 +21,7 @@ const forgotPassword = asyncHandler(async (req, res) => {
 
   return res.status(200).json({
     message:
-      "Password reset link has been sent to your email. Please check your inbox and follow the instructions to reset your password.",
+      "Password reset link has been sent to your email. Please check your inbox and follow the instructions to reset your password within an hour.",
   });
 });
 

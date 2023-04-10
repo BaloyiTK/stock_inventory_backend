@@ -15,11 +15,7 @@ export const sendEmail = async (token, user, type) => {
   const resetLink = `${process.env.RESET_PASSWORD_URL}?token=${token}`;
   let currentDate = new Date();
 
-  console.log(type);
-
   if (type === "forgot") {
-    console.log("Creating forgot password message");
-
     const message = {
       from: process.env.EMAIL_ADDRESS,
       to: user.email,
