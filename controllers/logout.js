@@ -1,5 +1,6 @@
 import asyncHandler from "express-async-handler";
 import User from "../models/userModel.js";
+import jwt from "jsonwebtoken";
 
 const logout = asyncHandler(async (req, res) => {
 
