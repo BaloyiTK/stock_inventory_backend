@@ -10,16 +10,17 @@ const app = express();
 
 //Middlewares
 //app.use(cors());
-app.use(express.json());
-app.use(cookieParser());
-app.use(express.urlencoded({ extended: true }));
-
 app.use(cors({
   credentials: true,
   origin: "http://localhost:3000",
   allowedHeaders: ["Content-Type", "Authorization"],
   methods: ["GET", "POST", "PUT", "DELETE"]
 }));
+app.use(express.json());
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: true }));
+
+
 
 /*app.use(cors({credentials:true, origin:"http://localhost:3000"}));
 
