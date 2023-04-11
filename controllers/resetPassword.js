@@ -6,6 +6,8 @@ import { sendEmail } from "../utils/sendEmail.js";
 const resetPassword = asyncHandler(async (req, res) => {
   const token = req.query.token;
 
+  console.log(token)
+
   let verified;
   try {
     verified = jwt.verify(token, process.env.JWT_SECRET);
@@ -21,14 +23,14 @@ const resetPassword = asyncHandler(async (req, res) => {
     throw new Error("User not found");
   }
 
-  const { confirmpassword, password } = req.body;
+  const { confirmPassword, password } = req.body;
 
-  if (!password || !confirmpassword) {
+  if (!password || !confirmPassword) {
     res.status(400);
     throw new Error("Please fill in all the required fields");
   }
 
-  if (password !== confirmpassword) {
+  if (password !== confirmPassword) {
     res.status(400);
     throw new Error("Passwords do not match. Please try again");
   }
