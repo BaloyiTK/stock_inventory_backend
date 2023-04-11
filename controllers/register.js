@@ -18,7 +18,7 @@ const register = asyncHandler(async (req, res) => {
   if (existingUser) {
     res.status(400);
     throw new Error(
-      "User already exist , please login or use different emaail!"
+      "User already exist , please login or use different email address!"
     );
   }
 

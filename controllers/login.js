@@ -21,8 +21,7 @@ const login = asyncHandler(async (req, res) => {
 
   //const token = generateToken(user._id);
   const token = generateToken(user._id)
-
-
+  
   res.cookie("token", token, {
     path: "/",
     httpOnly: true,
