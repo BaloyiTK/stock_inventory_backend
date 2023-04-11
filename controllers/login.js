@@ -28,7 +28,7 @@ const login = asyncHandler(async (req, res) => {
     httpOnly: true,
     expires: new Date(Date.now() + 1000 * 60 * 60), //60min
     sameSite: "none",
-    //secure: true,
+    secure: true,
   });
   if (passwordMatch) {
     const { _id, name, email, photo } = user;
